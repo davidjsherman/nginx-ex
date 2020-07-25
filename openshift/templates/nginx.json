@@ -47,7 +47,7 @@
       "metadata": {
         "name": "${NAME}",
         "annotations": {
-          "template.openshift.io/expose-uri": "http://{.spec.host}{.spec.path}"
+          "template.openshift.io/expose-uri": "https://{.spec.host}{.spec.path}"
         }
       },
       "spec": {
@@ -55,6 +55,9 @@
         "to": {
           "kind": "Service",
           "name": "${NAME}"
+        }
+        "tls": {
+          "termination": "edge"
         }
       }
     },
